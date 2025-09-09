@@ -52,8 +52,8 @@ export function useAppUpdate() {
       } catch (error) {
         console.error('업데이트 확인 중 오류:', error);
       }
-    // }, 1000 * 60 * 60); // 1시간마다 확인
-    }, 20000); // 20초 마다 확인
+    }, 1000 * 60 * 60); // 1시간마다 확인
+    // }, 20000); // 20초 마다 확인
 
     return () => {
       clearInterval(checkInterval);
