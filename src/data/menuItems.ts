@@ -1,5 +1,5 @@
 // data/menuItems.ts
-import { Home, ListTodo, Settings, HelpCircle, Star } from 'lucide-react'
+import { Home, ListTodo, Settings, HelpCircle, Star, LayoutDashboard } from 'lucide-react'
 import type { MenuItem } from '@/types/menu'
 
 export const menuItems: MenuItem[] = [
@@ -7,6 +7,11 @@ export const menuItems: MenuItem[] = [
     icon: Home,
     label: '홈',
     href: '/'
+  },
+  {
+    icon: LayoutDashboard,
+    label: '대시보드',
+    href: '/dashboard'
   },
   {
     icon: ListTodo,

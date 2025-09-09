@@ -1,4 +1,4 @@
-import { Star, RefreshCw } from "lucide-react"
+import { RefreshCw } from "lucide-react"
 import { SyncStatus } from "./SyncStatus"
 import { ManualSyncButton } from "./ManualSyncButton"
 import { InstallButton } from "./InstallButton"

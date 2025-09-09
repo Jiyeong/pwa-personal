@@ -27,7 +27,7 @@ function App() {
     isSyncing,
     pendingOperationsCount,
   } = useTodos()
-  const { updateAvailable, updateApp } = useAppUpdate()
+  const { updateAvailable, updateError, updateApp } = useAppUpdate()
 
 
   return (
@@ -47,10 +47,14 @@ function App() {
           <div className="fixed bottom-4 left-4 right-4 bg-blue-200 text-black p-4 rounded-lg shadow-lg z-50">
             <div className="flex items-center justify-between">
               <p>새로운 버전이 있습니다.</p>
-              <Button onClick={updateApp} variant="outline" size="sm">
+              <Button onClick={updateApp} variant="outline" size="sm" disabled={!!updateError}>
                 업데이트
               </Button>
             </div>
+            {updateError && (
+              <p className="text-red-600 text-sm mt-2">{updateError}</p>
+            )}
+
           </div>
         )}
 

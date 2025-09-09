@@ -11,15 +11,23 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: "autoUpdate",
-      injectRegister: "auto",
+      registerType: 'prompt',
+      // registerType: "autoUpdate",
+      // injectRegister: "auto",
       strategies: "generateSW",
+      // strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',  // Service Worker 파일 이름
+
       devOptions: {
         enabled: true,
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        cleanupOutdatedCaches: true,
+        skipWaiting: false,
         clientsClaim: true,
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/.*\.supabase\.co\/.*$/,
