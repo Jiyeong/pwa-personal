@@ -1,8 +1,10 @@
-import { Navigation } from "./Navigation"
+import { RefreshCw, WifiOff } from "lucide-react"
+import { Navigation } from "@/components/Navigation"
 import { useAppUpdate } from "@/hooks/useAppUpdate"
-import { Button } from "./ui/button"
-import {IOSInstallInstructions} from "@/components/InstallButton.tsx";
+import { Button } from "@/components/ui/button"
+import { InstallButton, IOSInstallInstructions } from "@/components/InstallButton.tsx";
 import {PullToRefresh} from "@/components/PullToRefresh.tsx"
+
 
 interface LayoutProps {
   children: React.ReactNode
@@ -47,7 +49,6 @@ export function Layout({
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <Navigation {...navigation} />
-
       {updateAvailable && (
           <div className="fixed bottom-4 left-4 right-4 bg-blue-200 text-black p-4 rounded-lg shadow-lg z-50">
             <div className="flex items-center justify-between">
@@ -61,11 +62,16 @@ export function Layout({
             )}
           </div>
       )}
+
       <PullToRefresh onRefresh={handleRefresh}>
         {/* Main Content - with top padding to account for fixed nav */}
         <div className="container mx-auto px-4 pt-40 pb-8 max-w-2xl mobile-content">
+
+          <InstallButton />
           {/* iOS Install Instructions */}
           <IOSInstallInstructions/>
+
+
           {children}
         </div>
 

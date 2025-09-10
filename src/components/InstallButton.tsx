@@ -95,23 +95,33 @@ export function InstallButton() {
 	}
 
 	return (
-		<Button
-			onClick={handleInstallClick}
-			disabled={isInstalling}
-			size="sm"
-			className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 cursor-pointer">
-			{isInstalling ? (
-				<>
-					<div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-					{translate("설치 중...", "Installing...")}
-				</>
-			) : (
-				<>
-					<Download className="w-4 h-4" />
-					{translate("앱 설치하기", "Install App")}
-				</>
-			)}
-		</Button>
+		<div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4 mt-4">
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-2">
+					<Download className="w-5 h-5 text-blue-600" />
+					<h3 className="font-medium text-blue-900">
+						{translate("앱 설치하기 버튼을 클릭하여 이 앱을 설치하세요.", "Install this app")}
+					</h3>
+				</div>
+				<Button
+					onClick={handleInstallClick}
+					disabled={isInstalling}
+					size="sm"
+					className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 cursor-pointer">
+					{isInstalling ? (
+						<>
+							<div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+							{translate("설치 중...", "Installing...")}
+						</>
+					) : (
+						<>
+							<Download className="w-4 h-4" />
+							{translate("앱 설치하기", "Install App")}
+						</>
+					)}
+				</Button>
+			</div>
+		</div>
 	)
 }
 

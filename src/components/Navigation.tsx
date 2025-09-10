@@ -1,8 +1,8 @@
 import { RefreshCw } from "lucide-react"
 import { SyncStatus } from "./SyncStatus"
 import { ManualSyncButton } from "./ManualSyncButton"
-import { InstallButton } from "./InstallButton"
-import { LanguageButton } from "./LanguageButton"
+/*import { InstallButton } from "./InstallButton"
+import { LanguageButton } from "./LanguageButton"*/
 import { MenuButton } from '@/components/MenuButton'
 
 
@@ -63,7 +63,7 @@ export function Navigation({
 							pendingOperationsCount={pendingOperationsCount}
 						/>
 						{/*<LanguageButton />*/}
-						<InstallButton />
+						{/*<InstallButton />*/}
 					</div>
 				</div>
 			</div>
