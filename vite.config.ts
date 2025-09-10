@@ -92,6 +92,13 @@ export default defineConfig({
             type: "image/png",
             purpose: "any maskable",
           },
+          // iOS 스플래시 스크린용 아이콘 15AF9A
+          {
+            src: "apple-splash-2048x2732.png",
+            sizes: "2048x2732",
+            type: "image/png",
+          },
+
         ],
       },
     }),
