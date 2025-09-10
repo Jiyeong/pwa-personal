@@ -2,6 +2,9 @@
 import { useEffect, useCallback } from 'react';
 
 export function InAppBrowserRedirect() {
+  /*
+  * 참고 문헌 : https://burndogfather.com/271
+  * */
   const copyToClipboard = useCallback((val: string) => {
     const textarea = document.createElement("textarea");
     document.body.appendChild(textarea);
@@ -29,11 +32,13 @@ export function InAppBrowserRedirect() {
     if (userAgent.match(/kakaotalk/i)) {
       window.location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(targetUrl)}`;
       // 카카오의 경우 인앱 탈출 후, 인앱에서 실행된 브라우저 닫기
-      if(userAgent.match(/iphone|ipad|ipod/i)){
-        location.href = 'kakaoweb://closeBrowser';
-      } else{
-        location.href = 'kakaotalk://inappbrowser/close';
-      }
+      setTimeout(() => {
+        if(userAgent.match(/iphone|ipad|ipod/i)){
+          location.href = 'kakaoweb://closeBrowser';
+        } else{
+          location.href = 'kakaotalk://inappbrowser/close';
+        }
+      }, 1000)
     } else if (userAgent.match(/line/i)) {
       const separator = targetUrl.includes('?') ? '&' : '?';
       window.location.href = `${targetUrl}${separator}openExternalBrowser=1`;
@@ -67,6 +72,3 @@ export function InAppBrowserRedirect() {
 
   return null;
 }
-/*
-* 참고 문헌 : https://burndogfather.com/271
-* */
